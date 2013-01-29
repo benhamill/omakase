@@ -1,5 +1,7 @@
 app_name = File.split(`pwd`.chomp).last
 
+run 'rm public/index.html'
+
 run 'rm README.rdoc'
 file 'README.md', <<-MARKDOWN
 # #{app_name.camelize}

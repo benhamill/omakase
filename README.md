@@ -11,4 +11,23 @@ in here. Feel free to use them for whatever (see LICENSE for details).
 
 Like so:
 
-    $ rails new -m http://github.com/benhamill/omakase/... fix this later.
+    $ rails new stop -m ~/hamill_time.rb -Td postgresql --skip-bundle
+
+You might like to [create a bash alias](https://gist.github.com/4662043)
+(thanks, Giles).
+
+## I know. It is a really bad pun.
+
+It:
+
+* Replaces the standard README.rdoc with your own README.md and gets rid of
+  /doc.
+* Clears comments from the Gemfile.
+* [pry](https://github.com/pry/pry)
+* [slim](https://github.com/slim-template/slim)
+* [thin](https://github.com/macournoyer/thin)
+* [rspec](https://github.com/rspec/rspec)
+* [capybara-webkit](https://github.com/thoughtbot/capybara-webkit)
+* Clean up `config/database.yml` a bit.
+* Assumes you'll deploy to Heroku (hence postgres, thin and database.yml).
+* Initializes a git repo and commits the blank app.

@@ -14,7 +14,13 @@ Like so:
     $ rails new stop -m ~/hamill_time.rb -Td postgresql --skip-bundle
 
 You might like to [create a bash alias](https://gist.github.com/4662043)
-(thanks, Giles).
+(thanks, Giles):
+
+```bash
+function rails_personal() {
+  rails new $* --skip-bundle --database=postgresql --skip-test-unit --template=https://raw.github.com/benhamill/omakase/master/hamill_time.rb
+}
+```
 
 ## I know. It is a really bad pun.
 

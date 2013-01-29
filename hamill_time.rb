@@ -1,4 +1,4 @@
-app_name = File.split(`pwd`.chomp).last.camelize
+app_name = File.split(`pwd`.chomp).last
 
 run 'rm README.rdoc'
 file 'README.md', <<-MARKDOWN

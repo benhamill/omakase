@@ -5,7 +5,8 @@ and the reference, and this very repository, was inspired by [a blog post by
 Giles Bowkett](http://gilesbowkett.blogspot.com/2013/01/we-can-solve-multiple-default-stacks.html).
 
 I'ma put my [Rails Application Templates](http://guides.rubyonrails.org/rails_application_templates.html)
-in here. Feel free to use them for whatever (see LICENSE for details).
+in here. Feel free to use them for whatever (see LICENSE for details). I'd love
+feedback or ideas; open an Issue or a Pull Request.
 
 ## But... *How*?!?
 
@@ -22,18 +23,17 @@ function rails_personal() {
 }
 ```
 
-## I know. It is a really bad pun.
-
-It:
+## It:
 
 * Replaces the standard README.rdoc with your own README.md and gets rid of
   /doc.
 * Clears comments from the Gemfile.
-* [pry](https://github.com/pry/pry)
-* [slim](https://github.com/slim-template/slim)
-* [thin](https://github.com/macournoyer/thin)
-* [rspec](https://github.com/rspec/rspec)
-* [capybara-webkit](https://github.com/thoughtbot/capybara-webkit)
-* Clean up `config/database.yml` a bit.
+* Likes some gems:
+  * [pry](https://github.com/pry/pry)
+  * [slim](https://github.com/slim-template/slim)
+  * [thin](https://github.com/macournoyer/thin)
+  * [rspec](https://github.com/rspec/rspec)
+  * [capybara-webkit](https://github.com/thoughtbot/capybara-webkit)
+* Cleans up `config/database.yml` a bit.
 * Assumes you'll deploy to Heroku (hence postgres, thin and database.yml).
 * Initializes a git repo and commits the blank app.

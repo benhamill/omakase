@@ -13,7 +13,7 @@ MARKDOWN
 run 'rm -rf doc/'
 
 run 'cat Gemfile | grep -v "#" | cat --squeeze-blank - > Gemfile.new && mv Gemfile.new Gemfile'
-run %Q(echo "#{<<-GEMFILE}" >> Gemfile)
+run %Q(echo "#{<<-GEMFILE.chomp}" >> Gemfile)
 gem 'pry-rails'
 gem 'pry-doc'
 gem 'slim-rails'
@@ -26,6 +26,11 @@ end
 GEMFILE
 run 'bundle install'
 run 'rails generate rspec:install'
+run %Q(echo "#{<<-SPEC_HELPER.chomp}" >> spec/spec_helper.rb)
+
+require 'capybara/rspec'
+Capybara.javascript_driver = :webkit
+SPEC_HELPER
 
 run 'cat config/database.yml | grep -v "#" | grep -v "username" | grep -v "password" | cat --squeeze-blank - > config/database.yml.new && mv config/database.yml.new config/database.yml'
 run 'rake db:create'
@@ -34,5 +39,4 @@ run 'rake db:migrate'
 git :init
 git add: '.'
 git commit: '-m "Green field Rails app."'
-
-say "OK. You need to mess with your test setup. Look here: http://rubydoc.info/gems/capybara#Using_Capybara_with_RSpec and here: http://rubydoc.info/gems/capybara-webkit#Usage", :yellow
+say "Done: #{app_name} is good to go!", :green

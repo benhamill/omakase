@@ -1,7 +1,7 @@
+say "STOP! Hamill Time!"
 app_name = File.split(`pwd`.chomp).last
 
-run 'rm public/index.html'
-
+# Write your own README, yo.
 run 'rm README.rdoc'
 file 'README.md', <<-MARKDOWN
 # #{app_name.camelize}
@@ -12,8 +12,8 @@ Write a short description here.
 
 Write instructions for how to get your app from checkout to green tests here.
 MARKDOWN
-run 'rm -rf doc/'
 
+# Clean up and betterize the Gemfile.
 run 'cat Gemfile | grep -v "#" | cat --squeeze-blank - > Gemfile.new && mv Gemfile.new Gemfile'
 run %Q(echo "#{<<-GEMFILE.chomp}" >> Gemfile)
 gem 'pry-rails'
@@ -27,6 +27,8 @@ group :development, :test do
 end
 GEMFILE
 run 'bundle install'
+
+# Set up RSpec
 run 'rails generate rspec:install'
 run %Q(echo "#{<<-SPEC_HELPER.chomp}" >> spec/spec_helper.rb)
 
@@ -34,6 +36,7 @@ require 'capybara/rspec'
 Capybara.javascript_driver = :webkit
 SPEC_HELPER
 
+# Clean up database.yml
 run 'cat config/database.yml | grep -v "#" | grep -v "username" | grep -v "password" | cat --squeeze-blank - > config/database.yml.new && mv config/database.yml.new config/database.yml'
 run 'rake db:create'
 run 'rake db:migrate'
